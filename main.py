@@ -19,7 +19,7 @@ assets = {
 }
 
 for name, ticker in assets.items():
-    data = yf.download(ticker, start="2025-01-01", progress=False)
+    data = yf.download(ticker, period="730d", progress=False)
     if data is not None and len(data) > 0:
         data.to_csv(f"{name}.csv")
         print(f"✅ {name}: {len(data)} days")
